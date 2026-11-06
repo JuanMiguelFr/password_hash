@@ -36,3 +36,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login de Usuario</title>
+    
+</head>
+<body>
+
+<div class="container">
+    <h2>Iniciar Sesión</h2>
+
+    <?php if (!empty($mensaje)): ?>
+        <div class="<?php echo $clase_mensaje; ?>">
+            <?php echo htmlspecialchars($mensaje); ?>
+        </div>
+    <?php endif; ?>
+
+    <form action="login.php" method="POST">
+        <div class="form-group">
+            <label for="usuario">Nombre de Usuario:</label>
+            <input type="text" id="usuario" name="usuario" value="<?php echo htmlspecialchars($usuario_capturado); ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <div class="ayuda">
+        <strong>Datos para probar en XAMPP:</strong><br>
+         Usuario: <code>juan123</code><br>
+         Contraseña válida: <code>secreto123</code>
+    </div>
+</div>
+
+</body>
+</html>
